@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הרשמה להרצאה | רצפת האגן</title>
+<meta name="description" content="הרצאה על חשיבות רצפת האגן בחייך, 11/11 בשעה 10:00 ב-CONTACT">
+<link rel="stylesheet" href="icons.css">
+<style>
+  /* ==========================================================
+     EDIT HERE: the Web3Forms key (web3forms.com) is in the script at the bottom.
+     Every sign-up is sent to the email the key was made with.
+     ========================================================== */
+  :root {
+    --navy: #1e334c; --navy-dk: #14233a; --pink: #eabcd1; --mauve: #a66b7b;
+    --ground: #fcf1f5; --line: #ead3dc;
+  }
+  @font-face { font-family: Secular; src: url('fonts/SecularOne-Regular.ttf'); }
+  @font-face { font-family: Varela;  src: url('fonts/VarelaRound-Regular.ttf'); }
+  @font-face { font-family: Thin;    src: url('fonts/NotoSansHebrew.ttf'); font-weight: 100 900; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { min-height: 100vh; background: var(--ground); color: var(--navy);
+         font-family: Varela, sans-serif; font-size: 17px; padding: 28px 18px 40px; }
+  .mask { display: block; background-size: contain; background-repeat: no-repeat; background-position: center; }
+
+  .logos { direction: ltr; display: flex; justify-content: center; align-items: center; gap: 18px; }
+  .brand { width: 70px; text-align: center; }
+  .brand .logo-yuval { width: 70px; height: 45px; }
+  .brand .name { margin-top: 6px; font-family: Thin; font-weight: 200; font-size: 11px; letter-spacing: 1px; color: var(--navy-dk); }
+  .x { font-family: Thin; font-weight: 200; font-size: 32px; color: var(--mauve); }
+  .host { width: 150px; }
+  .logo-contact { height: 32px; background-size: contain; background-repeat: no-repeat; background-position: center; }
+  .logo-contact-sub { height: 13px; margin-top: 3px; }
+
+  .wrap { max-width: 460px; margin: 26px auto 0; text-align: center; }
+  h1 { font-family: Secular; font-weight: 400; color: var(--navy-dk); font-size: 34px; line-height: 1.1; }
+  .about { font-family: Secular; color: var(--mauve); font-size: 24px; margin-top: 6px; }
+  .when { display: inline-flex; gap: 10px; margin-top: 16px; background: var(--pink); border-radius: 30px;
+          padding: 7px 20px 8px; font-family: Secular; font-size: 19px; color: var(--navy-dk); }
+  .where { margin-top: 10px; font-size: 15px; opacity: .8; }
+
+  form, .done { margin-top: 24px; background: #fff; border: 2px solid var(--line); border-radius: 28px;
+                padding: 26px 22px; text-align: right; box-shadow: 0 10px 30px rgba(30, 51, 76, .08); }
+  label { display: block; font-family: Secular; font-size: 17px; margin: 0 0 6px; }
+  input { width: 100%; font: inherit; color: var(--navy); background: #fdf8fa; border: 2px solid var(--line);
+          border-radius: 14px; padding: 12px 14px; margin-bottom: 16px; outline: none; }
+  input:focus { border-color: var(--mauve); background: #fff; }
+  input[type=tel], input[type=email] { direction: ltr; text-align: right; }
+  .hp { display: none; }
+  button { width: 100%; margin-top: 4px; font-family: Secular; font-size: 21px; color: #fff; background: var(--mauve);
+           border: 0; border-radius: 30px; padding: 13px; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: wait; }
+  .note { margin-top: 12px; font-size: 14px; text-align: center; opacity: .75; }
+  .err { margin-top: 12px; font-size: 15px; text-align: center; color: #9b2c4a; }
+
+  .done { text-align: center; }
+  .done h2 { font-family: Secular; font-weight: 400; color: var(--mauve); font-size: 30px; }
+  .done p { margin-top: 10px; line-height: 1.5; }
+  .by { margin-top: 26px; font-size: 15px; }
+  .by b { font-family: Secular; font-weight: 400; }
+</style>
+</head>
+<body>
+
+<div class="logos">
+  <div class="brand"><span class="mask logo-yuval"></span><div class="name">YuvalPhysio</div></div>
+  <div class="x">×</div>
+  <div class="host"><div class="logo-contact"></div><span class="mask logo-contact-sub"></span></div>
+</div>
+
+<main class="wrap">
+  <h1>הרשמה להרצאה</h1>
+  <div class="about">על חשיבות רצפת האגן בחייך</div>
+  <div class="when"><span>11/11</span><span>|</span><span>10:00</span></div>
+  <div class="where">CONTACT, אליעזר מזל 4, ראשון לציון</div>
+
+  <form id="reg" novalidate>
+    <label for="name">שם מלא</label>
+    <input id="name" name="name" autocomplete="name" required>
+    <label for="phone">טלפון</label>
+    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="050-0000000" required>
+    <label for="email">אימייל</label>
+    <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+    <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+    <button type="submit">אני נרשמת</button>
+    <p class="err" id="err" hidden></p>
+    <p class="note">מספר המקומות מוגבל</p>
+  </form>
+
+  <div class="done" id="done" hidden>
+    <h2>נרשמת, תודה!</h2>
+    <p>מחכה לראות אותך<br>ב-11/11 בשעה 10:00<br>לשאלות: <span dir="ltr">050-908-2296</span></p>
+  </div>
+
+  <p class="by">בהנחיית <b>יובל</b>, פיזיותרפיסטית לרצפת האגן</p>
+</main>
+
+<script>
+  const ACCESS_KEY = "136e2c1a-44ca-458b-b5c9-573347093c3e";
+
+  const form = document.getElementById("reg");
+  const err = document.getElementById("err");
+  const showError = (msg) => { err.textContent = msg; err.hidden = false; };
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    err.hidden = true;
+    const name = form.name.value.trim(), phone = form.phone.value.trim(), email = form.email.value.trim();
+    if (!name || !phone || !email) return showError("נא למלא שם, טלפון ואימייל.");
+    if (phone.replace(/\D/g, "").length < 9) return showError("נא לבדוק את מספר הטלפון.");
+    if (!/^\S+@\S+\.\S+$/.test(email)) return showError("נא לבדוק את כתובת האימייל.");
+
+    const button = form.querySelector("button");
+    button.disabled = true; button.textContent = "שולחת...";
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `הרשמה חדשה להרצאה: ${name}`,
+          from_name: "הרשמה להרצאת רצפת האגן",
+          "שם": name, "טלפון": phone, "אימייל": email,
+          replyto: email,
+          botcheck: form.botcheck.checked,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
+      form.hidden = true;
+      document.getElementById("done").hidden = false;
+    } catch {
+      showError("משהו לא עבד. אפשר לנסות שוב או להתקשר ל-050-908-2296.");
+      button.disabled = false; button.textContent = "אני נרשמת";
+    }
+  });
+</script>
+</body>
+</html>
